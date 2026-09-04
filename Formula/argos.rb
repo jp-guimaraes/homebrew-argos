@@ -36,7 +36,7 @@ class Argos < Formula
     # The helper has to land beside `argos`: the CLI locates it as a sibling
     # of its own path, so a formula that installed only one of the two would
     # produce a binary that fails the moment it needs privilege.
-    assert_predicate bin/"argos-helper", :exist?
+    assert_path_exists bin/"argos-helper"
 
     assert_match "argos", shell_output("#{bin}/argos man")
   end
