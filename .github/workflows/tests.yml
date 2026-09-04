@@ -18,6 +18,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: brew style Formula/argos.rb
-      - run: brew audit --strict --online Formula/argos.rb
-      - run: brew install --build-from-source Formula/argos.rb
-      - run: brew test argos
+
+      # `brew audit`/`install`/`test` want a tapped formula name, not a bare
+      # path -- tapping the checkout itself as jp-guimaraes/argos (matching
+      # this repo's real name once installed for real) gets that for free.
+      - run: brew tap jp-guimaraes/argos "$PWD"
+      - run: brew audit --strict --online jp-guimaraes/argos/argos
+      - run: brew install --build-from-source jp-guimaraes/argos/argos
+      - run: brew test jp-guimaraes/argos/argos
