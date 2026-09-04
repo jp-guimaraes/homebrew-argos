@@ -18,7 +18,11 @@ class Argos < Formula
     system "cargo", "install", *std_cargo_args(path: "crates/argos-privileged")
 
     generate_completions_from_executable(bin/"argos", "completions")
-    man1.install Utils.safe_popen_read(bin/"argos", "man") => "argos.1"
+
+    # man1.install wants a file path, not the page's content -- write it out
+    # first, then install that.
+    (buildpath/"argos.1").write Utils.safe_popen_read(bin/"argos", "man")
+    man1.install "argos.1"
   end
 
   def caveats
