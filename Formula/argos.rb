@@ -1,8 +1,8 @@
 class Argos < Formula
   desc "Create bootable Windows and Linux installer USB drives, for BIOS and UEFI"
   homepage "https://github.com/jp-guimaraes/argos"
-  url "https://github.com/jp-guimaraes/argos/archive/refs/tags/v1.5.5.tar.gz"
-  sha256 "3774ac1cb6550de426ec62f1d18806923f490b668670fadeea73b4cfef5048e0"
+  url "https://github.com/jp-guimaraes/argos/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "f335a8fe61ce32664fe9948082683ec1327b3ff745b0f028310f435adede42ed"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/jp-guimaraes/argos.git", branch: "main"
 
